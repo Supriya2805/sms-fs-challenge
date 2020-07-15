@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +61,7 @@ public class JSONDataFeedService {
 	 */
 	private List<City> parseJsonFile() {
 		logger.info("------------ PARSING JSON FEED-----------");
-		List<City> cityList = new ArrayList<City>();
+		LinkedList<City> cityList = new LinkedList<City>();
 
 		try {
 			File file = ResourceUtils.getFile("classpath:data.json");
@@ -80,11 +81,11 @@ public class JSONDataFeedService {
 						if(entry.getKey().equalsIgnoreCase("city"))
 							city.setName(entry.getValue().toString());
 						if(entry.getKey().equalsIgnoreCase("start_date"))
-							city.setStartDate(new Timestamp(new SimpleDateFormat("dd/MM/yyyy").parse(entry.getValue().toString()).getTime()));
+							city.setStartDate(new SimpleDateFormat("MM/dd/yyyy").parse(entry.getValue().toString()));
 						if(entry.getKey().equalsIgnoreCase("end_date"))
-							city.setEndDate(new Timestamp(new SimpleDateFormat("dd/MM/yyyy").parse(entry.getValue().toString()).getTime()));
+							city.setEndDate(new SimpleDateFormat("MM/dd/yyyy").parse(entry.getValue().toString()));
 						if(entry.getKey().equalsIgnoreCase("price"))
-							city.setPrice(new BigDecimal(entry.getValue().toString()));
+							city.setPrice(Double.parseDouble(entry.getValue().toString()));
 						if(entry.getKey().equalsIgnoreCase("status"))
 							city.setStatus(entry.getValue().toString());
 						if(entry.getKey().equalsIgnoreCase("color"))

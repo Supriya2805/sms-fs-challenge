@@ -2,6 +2,8 @@ package com.sms.server.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="CITY")
@@ -23,13 +27,13 @@ public class City {
 	private String name;
 	
 	@Column(name="START_DATE")
-	private Timestamp startDate;
+	private Date startDate;
 	
 	@Column(name="END_DATE")
-	private Timestamp endDate;
+	private Date endDate;
 	
 	@Column(name="PRICE")
-	private BigDecimal price;
+	private double price;
 	
 	@Column(name="STATUS")
 	private String status;
@@ -53,27 +57,27 @@ public class City {
 		this.name = name;
 	}
 
-	public Timestamp getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Timestamp startDate) {
-		this.startDate = startDate;
+	public void setStartDate(Date date) {
+		this.startDate = date;
 	}
 
-	public Timestamp getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Timestamp endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
-	public BigDecimal getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

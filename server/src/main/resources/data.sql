@@ -5,7 +5,7 @@ CREATE TABLE city (
   name VARCHAR(250) NOT NULL,
   start_date DATE,
   end_date DATE,
-  price INT(8),
+  price DECIMAL(20,2),
   status VARCHAR(250),
   color VARCHAR(250) DEFAULT NULL
 );
