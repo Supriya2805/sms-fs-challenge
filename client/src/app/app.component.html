@@ -1,3 +1,10 @@
+<!--<div>
+  <p-calendar (onSelect)="handleChange($event,'date')" dateFormat="mm/dd/yyyy" >
+    <ng-template pTemplate="date" let-date[]>
+      <span [ngStyle]='{"position":"relative", "height":"40px", "width":"240px"}'>{{date.day}}</span>
+    </ng-template>
+  </p-calendar>-->
+</div>
 <p-table [columns]="cols" [value]="cities" [paginator]="true" [rows]="20" [pageLinks]="3" #dt>
   <ng-template pTemplate="caption">
       Cities List

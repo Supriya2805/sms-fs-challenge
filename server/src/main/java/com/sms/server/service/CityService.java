@@ -43,7 +43,7 @@ public class CityService {
 			city.setStartDate(newCity.getStartDate());
 			city.setEndDate(newCity.getEndDate());
 			return cityRepository.save(city);
-		}).orElseThrow(() -> {
+		}).<CityNotFoundException>orElseThrow(() -> {
 			throw new CityNotFoundException(id);
 		});
 	}
